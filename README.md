@@ -114,7 +114,7 @@ select_mode = "ranking"
       
 &nbsp;      
 ## Exampleについて  
-* LCO_ver_import  
+* LCO_matlantis_import_opt  
     LiCoO2のカチオンサイトについて最適化を行ったもの   
     Matlantisにて、opt.pyをimportしてstatic計算を行っています。  
 &nbsp;      
