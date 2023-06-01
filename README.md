@@ -133,6 +133,11 @@ select_mode = "ranking"
     opt.pyはMatlantisで最適化を行う際に使うファイルです。それ以外の場合は不要です。  
     
 
+## ライセンス、引用について (License, Citing)
+**ライセンス(About License)**　This software is released under the MIT License, see the LICENSE.
+**引用先(Citing)**
+    
+
 
 
     
