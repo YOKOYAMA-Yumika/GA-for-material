@@ -87,7 +87,11 @@ if "matlantis" in runtype and ncore != 1:
 check_the_num_of_strings()
 if sys.argv[1] == "-ga" and "matlantis" in runtype and thread == True:
     import opt
-    
+
+if RESTART == True:
+    if os.path.isfile(f"{pwd}/out.value_indiv") == False:
+        print("Warning! There is no data for the midway point\n         Please set RESTART in inp_ga.py to False or comment it out")
+        sys.exit()
 """
 Making of Additional Parameters
 
