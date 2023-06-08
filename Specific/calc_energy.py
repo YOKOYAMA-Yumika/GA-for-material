@@ -16,12 +16,12 @@ cri_time = 20*60
 if runtype == "m3g":
     calccode = "m3g.py -instruct=POSCAR 2>errorlog.m3g >log.m3g &"
     energy_file = "energy"
-elif runtype == "matlantis":
-    calccode = "m.py instruct=POSCAR"
-    energy_file = "energy"
-elif runtype == "matlantis-static":
-    calccode = "m.py instruct=POSCAR mode=static"
-    energy_file = "energy"
+# elif runtype == "xxxx":
+#     calccode = "XXXXX"
+#     energy_file = "energy"
+# elif runtype == "xxxx-static":
+#     calccode = "XXXXX mode=static"
+#     energy_file = "energy"
 elif runtype == "test":
     energy_file = "energy"
 else:
