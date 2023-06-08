@@ -30,12 +30,11 @@
 1. 以下のファイル構造を作成する  
     * Specific  
         ├POSCAR_org  
-        └calc_energy.py (m.pyを呼び出して行いたい場合のみ） 
-    * inp_POSCAR.py 
+        ├inp_POSCAR.py
+        └calc_energy.py ） 
     * inp_ga.py  
     * inp.params  
     * prepstrings.py 
-    * opt.py（m.pyの中身を関数にまとめたもの。m.pyを呼び出して行いたい場合は不要）
     
 
 2. POSCAR_orgの作成  
@@ -50,12 +49,12 @@
     
     | parametar | example | memo |
     |----|----|----| 
-    | runtype | "matlantis" | staticの場合は"matlantis-static"。プログラム内でruntypeに対応した計算コードを定義しています。|
+    | runtype | "m3g" | staticの場合は"m3g-static"。プログラム内でruntypeに対応した計算コードを定義しています。|
     | ions | ["Li", "Co", "O"] | すべての原子 |
     | ELEM | [["Li", "Co"]] | 配列を最適化する原子[[ELEM1のイオン], [ELEM2のイオン], ...]  |
     | savefiles |  ["POSCAR", "CONTCAR", "temp_gene"] | 保存するファイルの指定 |
     | output | "energy" | 計算により吐き出されるenergyファイルの指定。このファイルを読み取ってエネルギー値を取得しています。| 
-    | thread | True | 外部ファイルをimportして計算。毎回m.pyを呼び出して行いたい場合はコメントアウトしてください。 |  
+    | thread | True | 外部ファイルをimportして計算する場合はTrueにしてください。Falseの場合、毎計算calc_energy.pyを起動します。 |  
     
     thread = Trueにすることで、構造緩和の際のpythonのimport回数が1回で済むことにより計算時間の短縮が見込めます。
 
@@ -78,8 +77,8 @@
     | CR_UNI_PB | 0.5 | 一様交叉が発生する確率 |
     | MUTATION_PB | 0.02 | 突然変異が発生する確率 |
     | STOP_CRITERIA | 100 | 停止条件 |
-    | # RESTART |True | 計算を続きから投げ直す場合はコメントアウトを外して下さい |
-    | ELEMENT_FIX | True | 各要素数を固定したい場合はTrueに |
+    | RESTART | True | 計算を続きから投げ直す場合はTrueにしてください。ただし、out.value_indivファイルが必要です。　初めから始める場合はFalseにしてください。 |
+    | ELEMENT_FIX | True | 各要素数を固定したい場合はTrueにしてください。 |
     | temp_gene | "temp_gene" | |
     | eval_file | "energy" | エネルギー値を読み取るファイル名 |
     | ncore | 1 | 並列して行う緩和計算の数 |
@@ -113,17 +112,13 @@ select_mode = "ranking"
     優秀順に重みを付けルーレットを回すことで生存個体を選択する。優秀な個体ほどルーレットで選ばれやすくなるように重みがつけられている。  
       
 &nbsp;      
-## Exampleについて  
-* LCO_matlantis_import_opt  
-    LiCoO2のカチオンサイトについて最適化を行ったもの   
-    Matlantisにて、opt.pyをimportしてstatic計算を行っています。  
-&nbsp;      
-* LSCF_m3gnet  
+## Exampleについて    
+* LSCF_M3GNet  
     La38Sr26Co13Fe51O192の(La, Sr)サイト、(Co, Fe)サイトについて最適化を行ったもの  
     m3gnetを使用して計算を行っています。  
     La, Sr, Co, Feの数は固定しています。  
 &nbsp;      
-* LSCF_nofix_m3gnet  
+* LSCF_nofix_M3GNet  
     (La, Sr)64(Co, Fe)64O192の(La, Sr)サイト、(Co, Fe)サイトについて最適化を行ったもの  
     m3gnetを使用して計算を行っています。
     (La, Sr), (Co, Fe)の比率は固定していません。  
@@ -134,7 +129,7 @@ select_mode = "ranking"
     
 
 ## ライセンス、引用について (License, Citing)
-**ライセンス(About License)**　This software is released under the MIT License, see the LICENSE.
+**ライセンス(About License)**　This software is released under the MIT License, see the LICENSE.  
 **引用先(Citing)**
     
 
