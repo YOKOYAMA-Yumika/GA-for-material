@@ -11,11 +11,10 @@ import glob
 import datetime
 import math
 import inp_ga
-import inp_POSCAR
+from Specific import inp_POSCAR
 from concurrent.futures import ThreadPoolExecutor
 
 pwd = os.getcwd()
-os.system(f"cp {pwd}/inp_POSCAR.py {pwd}/Specific")
 
 
 """
@@ -85,8 +84,10 @@ if "matlantis" in runtype and ncore != 1:
     sys.exit()
 
 check_the_num_of_strings()
-if sys.argv[1] == "-ga" and "matlantis" in runtype and thread == True:
-    import opt
+
+#example if you want to import some file, please write like this
+# if sys.argv[1] == "-ga" and "(mode name)" in runtype and thread == True:
+#     import (your script name)
 
 if RESTART == True:
     if os.path.isfile(f"{pwd}/out.value_indiv") == False:
