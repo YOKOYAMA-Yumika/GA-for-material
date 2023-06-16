@@ -25,7 +25,7 @@
 ![Figure](Figure.png)
 
 
-## 使用方法（Matlantisで使用する場合）
+## 使用方法
 **◆計算準備◆**
 1. 以下のファイル構造を作成する  
     * Specific  
@@ -54,7 +54,7 @@
     | ELEM | [["Li", "Co"]] | 配列を最適化する原子[[ELEM1のイオン], [ELEM2のイオン], ...]  |
     | savefiles |  ["POSCAR", "CONTCAR", "temp_gene"] | 保存するファイルの指定 |
     | output | "energy" | 計算により吐き出されるenergyファイルの指定。このファイルを読み取ってエネルギー値を取得しています。| 
-    | thread | True | 外部ファイルをimportして計算する場合はTrueにしてください。Falseの場合、毎計算calc_energy.pyを起動します。 |  
+    | thread | True | 外部ファイルをimportして緩和計算する場合はTrueにしてください。Falseの場合、毎計算calc_energy.pyを起動します。 |  
     
     thread = Trueにすることで、構造緩和の際のpythonのimport回数が1回で済むことにより計算時間の短縮が見込めます。
 
@@ -125,7 +125,7 @@ select_mode = "ranking"
 &nbsp;      
 * SET  
     GAを行うのに必要なファイルをまとめてあります。  
-    opt.pyはMatlantisで最適化を行う際に使うファイルです。それ以外の場合は不要です。  
+      
     
 
 ## ライセンス、引用について (License, Citing)
