@@ -11,19 +11,9 @@ from ase.io import read, write
 from ase.io import Trajectory
 from ase.constraints import FixAtoms, FixedPlane, FixBondLength, UnitCellFilter, ExpCellFilter
 from ase.optimize import LBFGS, BFGS, FIRE
-# from ase.md.velocitydistribution import MaxwellBoltzmannDistribution, Stationary
-# from ase.md.verlet import VelocityVerlet
-# from ase.md.langevin import Langevin
-# from ase.md.npt import NPT
-# from ase.md.nptberendsen import NPTBerendsen
-# from ase.md import MDLogger
+
 from ase import Atoms
 from ase import units
-
-# from ase.md.velocitydistribution import MaxwellBoltzmannDistribution, Stationary
-# from ase.md.verlet import VelocityVerlet
-# from ase.md.langevin import Langevin
-# from ase.md import MDLogger
 
 from m3gnet.models import M3GNet, M3GNetCalculator, Potential
 from m3gnet.models import Relaxer
