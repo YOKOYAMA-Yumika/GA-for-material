@@ -57,9 +57,11 @@
     | thread | True | 外部ファイルをimportして緩和計算する場合はTrueにしてください。Falseの場合、毎計算calc_energy.pyを起動します。 |  
     
     thread = Trueにすることで、構造緩和の際のpythonのimport回数が1回で済むことにより計算時間の短縮が見込めます。
+   例）thread = True, runtype = m3g の場合：Specific中のoptm3g.pyを読み込んでM3GNetによる構造緩和が行われます。
+       thread = False の場合は、M3Gnetを実行するpythonファイルが必要です。この場合、計算のたびにモジュールがimportされることになります。
 
 
-4. inp_ga.pyを編集  
+5. inp_ga.pyを編集  
     遺伝的アルゴリズムの条件を設定する  
     <div style="text-align: center;">
     Table2. inp_ga.pyのパラメータ   
@@ -84,7 +86,7 @@
     | ncore | 1 | 並列して行う緩和計算の数 |
   
   
-5. inp.paramsを作成  
+6. inp.paramsを作成  
     初期遺伝子を作成するファイル。どの元素が何個あるかを読み込むのに使用する。  
     1) prepstrnigs.pyを編集  
         0, 1, 2...遺伝子番号はinp_POSCAR.py内のELEMで設定した順番と対応  
