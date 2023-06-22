@@ -61,7 +61,7 @@ def main(input):
     for flc in fl:
         print ("  ",flc.strip())
 
-
+    os.system(f"rm {outallenergy}")
     # os.system("cp "+inpf+" POSCAR_in")
     poscar = Structure.from_file("POSCAR")
     atoms = read("POSCAR")
@@ -104,20 +104,12 @@ def main(input):
         print("************* calculation starts: structure relaxation  *************")
         print("ini   pot:{:.4f},maxforce:{:.4f}".format(float(atoms.get_potential_energy()),float(maxf)))
 
-        # if algo=="LBFGS":
-        #     opt = LBFGS(ucf, trajectory="relax.traj",logfile=outallenergy)
-        # elif algo=="BFGS":
-        #     opt = BFGS(ucf, trajectory="relax.traj",logfile=outallenergy)
-        # elif algo=="FIRE":
-        #     opt = FIRE(ucf, trajectory="relax.traj",logfile=outallenergy)
-
-        # opt = FIRE(ucf, trajectory="relax.traj",logfile=outallenergy)
-        # opt.run(fmax=infmax,steps=20)
-
-        # if isif == 3:
-        #     opt=opt.atoms
-                    
-        opt = LBFGS(ucf, trajectory="relax.traj",logfile=outallenergy)
+        if algo=="LBFGS":
+            opt = LBFGS(ucf, trajectory="relax.traj",logfile=outallenergy)
+        elif algo=="BFGS":
+            opt = BFGS(ucf, trajectory="relax.traj",logfile=outallenergy)
+        elif algo=="FIRE":
+            opt = FIRE(ucf, trajectory="relax.traj",logfile=outallenergy)
         opt.run(fmax=infmax,steps=maxstep)
 
         if isif == 3:
