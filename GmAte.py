@@ -79,15 +79,15 @@ def check_argument():
     else:
         pass
     
-if "matlantis" in runtype and ncore != 1:
-    print("WARNING: matlantis, ncore must be 1")
-    sys.exit()
+# if "matlantis" in runtype and ncore != 1:
+#     print("WARNING: matlantis, ncore must be 1")
+#     sys.exit()
 
 check_the_num_of_strings()
-if sys.argv[1] == "-ga" and "matlantis" in runtype and thread == True:
-    from Specific import opt
+# if sys.argv[1] == "-ga" and "XXX" in runtype and thread == True:
+#     from Specific import optXXX
 
-elif sys.argv[1] == "-ga" and "m3g" in runtype and thread == True:
+if sys.argv[1] == "-ga" and "m3g" in runtype and thread == True:
     from Specific import optm3g
 
 elif sys.argv[1] == "-ga" and "test" in runtype and thread == True:
