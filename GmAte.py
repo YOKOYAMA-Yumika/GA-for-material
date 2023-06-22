@@ -323,18 +323,25 @@ class Indivisual:
         else:
             # os.system(f"{calccode}")    
             pass
-        while True:
-            if os.path.isfile(f"{self.cpwd}/{eval_file}") == True:
-                print("calc finish")
-                self.make_savefiles()
-                with open(f"{self.cpwd}/{eval_file}", "r") as f:
-                    score = float(f.readline().rstrip())
-                # time.sleep(5)
-                os.system(f"rm {self.cpwd}/{eval_file}")
-                os.system(f"mv {self.cpwd}/running {self.cpwd}/finish &")
-                break
-            else:
-                pass
+        # while True:
+        #     if os.path.isfile(f"{self.cpwd}/{eval_file}") == True:
+        #         print("calc finish")
+        #         self.make_savefiles()
+        #         with open(f"{self.cpwd}/{eval_file}", "r") as f:
+        #             score = float(f.readline().rstrip())
+        #         # time.sleep(5)
+        #         os.system(f"rm {self.cpwd}/{eval_file}")
+        #         os.system(f"mv {self.cpwd}/running {self.cpwd}/finish &")
+        #         break
+        #     else:
+        #         pass
+        print("calc finish")
+        self.make_savefiles()
+        with open(f"{self.cpwd}/{eval_file}", "r") as f:
+            score = float(f.readline().rstrip())
+        # time.sleep(5)
+        os.system(f"rm {self.cpwd}/{eval_file}")
+        os.system(f"mv {self.cpwd}/running {self.cpwd}/finish &")
         os.chdir(pwd)
         return score
     
@@ -369,18 +376,24 @@ class Indivisual:
                 # os.system(f"{calccode}")    
                 pass
             if loop + 1 == calc_loop:
-                while True:
-                    if os.path.isfile(f"{self.cpwd}/{eval_file}") == True:
-                        print("calc finish")
-                        self.make_savefiles()
-                        with open(f"{self.cpwd}/{eval_file}", "r") as f:
-                            score = float(f.readline().rstrip())
-                        # time.sleep(5)
-                        os.system(f"rm {self.cpwd}/{eval_file}")
-                        os.system(f"mv {self.cpwd}/running {self.cpwd}/finish &")
-                        break
-                    else:
-                        pass
+                print("calc finish")
+                self.make_savefiles()
+                with open(f"{self.cpwd}/{eval_file}", "r") as f:
+                    score = float(f.readline().rstrip())
+                os.system(f"rm {self.cpwd}/{eval_file}")
+                os.system(f"mv {self.cpwd}/running {self.cpwd}/finish &")
+                # while True:
+                #     if os.path.isfile(f"{self.cpwd}/{eval_file}") == True:
+                #         print("calc finish")
+                #         self.make_savefiles()
+                #         with open(f"{self.cpwd}/{eval_file}", "r") as f:
+                #             score = float(f.readline().rstrip())
+                #         # time.sleep(5)
+                #         os.system(f"rm {self.cpwd}/{eval_file}")
+                #         os.system(f"mv {self.cpwd}/running {self.cpwd}/finish &")
+                #         break
+                #     else:
+                #         pass
             else:
                 os.system("mv CONTCAR POSCAR")
         os.chdir(pwd) 
