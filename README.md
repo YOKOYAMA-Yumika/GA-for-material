@@ -117,16 +117,20 @@ select_mode = "ranking"
 ## Exampleについて    
 * LSCF_M3GNet  
     La38Sr26Co13Fe51O192の(La, Sr)サイト、(Co, Fe)サイトについて最適化を行ったもの  
-    m3gnetを使用して計算を行っています。  
+    calc_energy.pyでm3g.pyを起動させることで、M3GNetによる計算を行っています。
+    ※現在、m3g.pyはGithubに載せていません。  
     La, Sr, Co, Feの数は固定しています。  
 &nbsp;      
 * LSCF_nofix_M3GNet  
     (La, Sr)64(Co, Fe)64O192の(La, Sr)サイト、(Co, Fe)サイトについて最適化を行ったもの  
     m3gnetを使用して計算を行っています。
-    (La, Sr), (Co, Fe)の比率は固定していません。  
-&nbsp;      
-* SET  
-    GAを行うのに必要なファイルをまとめてあります。  
+    (La, Sr), (Co, Fe)の比率は固定していません。
+&nbsp;
+* LiAlO2_import_M3GNet
+    LiAlO2のカチオンサイトの最適化を行ったもの
+    Specific/optm3g.pyを用いてM3GNetによる計算を行っています。
+    importが一度で済むため計算速くなります。  
+
       
     
 
