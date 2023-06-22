@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
-import numpy as np
 import os
+os.environ['OPENBLAS_NUM_THREADS'] = '1'
+import numpy as np
 import random
 from random import shuffle
 import codecs
