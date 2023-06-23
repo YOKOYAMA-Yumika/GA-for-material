@@ -30,8 +30,9 @@
 1. 以下のファイル構造を作成する  
     * Specific  
         ├POSCAR_org  
-        ├inp_POSCAR.py
-        └calc_energy.py ） 
+        ├inp_POSCAR.py  
+        ├optm3g.py (thread=True, runtype="m3g"のときに必要。M3Gnetによる計算、importが一回で済む。)  
+        └calc_energy.py (thread=Falseの場合に必要、遺伝子からPOSCARを作成する場合にも使用可能)   
     * inp_ga.py  
     * inp.params  
     * prepstrings.py 
@@ -50,8 +51,8 @@
     | parametar | example | memo |
     |----|----|----| 
     | runtype | "m3g" | staticの場合は"m3g-static"。プログラム内でruntypeに対応した計算コードを定義しています。|
-    | ions | ["Li", "Co", "O"] | すべての原子 |
-    | ELEM | [["Li", "Co"]] | 配列を最適化する原子[[ELEM1のイオン], [ELEM2のイオン], ...]  |
+    | ions | ["Li", "Al", "O"] | すべての原子 |
+    | ELEM | [["Li", "Al"]] | 配列を最適化する原子[[ELEM1のイオン], [ELEM2のイオン], ...]  |
     | savefiles |  ["POSCAR", "CONTCAR", "temp_gene"] | 保存するファイルの指定 |
     | output | "energy" | 計算により吐き出されるenergyファイルの指定。このファイルを読み取ってエネルギー値を取得しています。| 
     | thread | True | 外部ファイルをimportして緩和計算する場合はTrueにしてください。Falseの場合、毎計算calc_energy.pyを起動します。 |  
@@ -99,7 +100,11 @@
     配列の最適化がスタートする。  
 &nbsp;  
 * GmAte.py -bestgene out.value_indiv 1 5  
-    上位1位から5位を抽出しそれぞれディレクトリを作成する。  
+    上位1位から5位を抽出しそれぞれディレクトリを作成する。
+&nbsp;  
+* calc_energy.py -gene2pos
+    temp_gene, POSCA_orgがあるディレクトリで実行すると、temp_geneの中にある遺伝子を読み取ってPOSCARを作成する。
+    Save_infoやout.value_indivに遺伝子配列は保存されています。 
   
 &nbsp;      
 ## 生存個体選択方法について
@@ -124,7 +129,7 @@ select_mode = "ranking"
 * LSCF_nofix_M3GNet  
     (La, Sr)64(Co, Fe)64O192の(La, Sr)サイト、(Co, Fe)サイトについて最適化を行ったもの  
     m3gnetを使用して計算を行っています。
-    (La, Sr), (Co, Fe)の比率は固定していません。
+    (La, Sr), (Co, Fe)の比率は固定していません。  
 &nbsp;
 * LiAlO2_import_M3GNet
     LiAlO2のカチオンサイトの最適化を行ったもの
