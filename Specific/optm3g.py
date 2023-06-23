@@ -60,8 +60,10 @@ def main(input):
     fl=open ("log.m3g_input",'r')
     for flc in fl:
         print ("  ",flc.strip())
-
-    os.system(f"rm {outallenergy}")
+    try:
+        os.system(f"rm {outallenergy}")
+    except:
+        pass
     # os.system("cp "+inpf+" POSCAR_in")
     poscar = Structure.from_file("POSCAR")
     atoms = read("POSCAR")
