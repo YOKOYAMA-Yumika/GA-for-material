@@ -143,7 +143,7 @@ select_mode = "ranking"
 **ライセンス(About License)**  
 This software is released under the MIT License, see the LICENSE.  
 **引用先(Citing)**  
-・M3gNet https://github.com/materialsvirtuallab/m3gnet
+・M3GNet https://github.com/materialsvirtuallab/m3gnet
     
 
 
