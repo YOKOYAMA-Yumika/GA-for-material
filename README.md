@@ -95,20 +95,20 @@
         inp.parmasが作成される  
 
 &nbsp; 
-## 構造緩和方法について  
-・vaspを用いて行う場合  
-  inp_POSCAR.pyのパラメータを以下に設定  
+**◆構造緩和方法について◆**    
+* vaspを用いて行う場合  
+  - inp_POSCAR.pyのパラメータを以下に設定  
       runtype = "vasp"  
       thread = False  
-  Specific内に以下のファイルを用意  
+  - Specific内に以下のファイルを用意  
       KPOINTS, INCAR, POTCAR  
       POTCAR作成のためにPOSCARが必要な場合、inp.paramsをtemp_geneにコピーし「./calc_energy.py -gene2pos」を実行することでPOSCARを作成することができます。  
 
-・M3GNetを用いて行う場合   
-  inp_POSCAR.pyのパラメータを如何に設定  
+* M3GNetを用いて行う場合   
+  - inp_POSCAR.pyのパラメータを如何に設定  
     runtype = "m3g"  
     thread = True   
-  Specific内にoptm3g.pyを用意   
+  - Specific内にoptm3g.pyを用意   
 
 **◆計算の投げ方◆**  
 * GmAte.py -ga  
