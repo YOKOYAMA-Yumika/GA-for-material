@@ -159,6 +159,7 @@ select_mode = "ranking"
 This software is released under the MIT License, see the LICENSE.  
 **引用先(Citing)**  
 ・M3GNet https://github.com/materialsvirtuallab/m3gnet
+・M. Nakayama, K. Nishii, K. Watanabe, N. Tanibata, H. Takeda, T. Itoh, T. Asaka, "First-principles study of the morphology and surface structure of LaCoO3 and La0.5Sr0.5Fe0.5Co0.5O3 perovskites as air electrodes for solid oxide fuel cells", Sci. Technol. Adv. Mater.: Methods, 1, 24-33 (2021)  [DOI:10.1080/27660400.2021.1909871 ](https://doi.org/10.1080/27660400.2021.1909871)
     
 
 
