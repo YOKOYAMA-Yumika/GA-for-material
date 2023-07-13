@@ -32,7 +32,7 @@
         ├POSCAR_org  
         ├inp_POSCAR.py  
         ├optm3g.py (thread=True, runtype="m3g"のときに必要。M3Gnetによる計算、importが一回で済む。)  
-        └calc_energy.py (thread=Falseの場合に必要、遺伝子からPOSCARを作成する場合にも使用可能)   
+        └calc_energy.py (thread=Falseの場合に必要、遺伝子からPOSCARを作成する場合にも使用可能)     
     * inp_ga.py  
     * inp.params  
     * prepstrings.py 
@@ -94,6 +94,21 @@
     2) prepstrings.pyを実行  
         inp.parmasが作成される  
 
+&nbsp; 
+## 構造緩和方法について  
+・vaspを用いて行う場合  
+  inp_POSCAR.pyのパラメータを以下に設定  
+      runtype = "vasp"  
+      thread = False  
+  Specific内に以下のファイルを用意  
+      KPOINTS, INCAR, POTCAR  
+      POTCAR作成のためにPOSCARが必要な場合、inp.paramsをtemp_geneにコピーし「./calc_energy.py -gene2pos」を実行することでPOSCARを作成することができます。  
+
+・M3GNetを用いて行う場合   
+  inp_POSCAR.pyのパラメータを如何に設定  
+    runtype = "m3g"  
+    thread = True   
+  Specific内にoptm3g.pyを用意   
 
 **◆計算の投げ方◆**  
 * GmAte.py -ga  
