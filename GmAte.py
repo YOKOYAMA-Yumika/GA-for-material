@@ -50,7 +50,7 @@ except:
     RESTART = False
 ELEMENT_FIX = inp_ga.ELEMENT_FIX
 tmp_gene = inp_ga.temp_gene
-ncore = inp_ga.ncore
+njob = inp_ga.njob
 eval_file = inp_ga.eval_file
 duplicate_crit = 200
 ELEM = inp_POSCAR.ELEM
@@ -84,8 +84,8 @@ def check_argument():
     else:
         pass
     
-# if "xxx" in runtype and ncore != 1:
-#     print("WARNING: xxx, ncore must be 1")
+# if "xxx" in runtype and njob != 1:
+#     print("WARNING: xxx, njob must be 1")
 #     sys.exit()
 
 check_the_num_of_strings()
@@ -456,7 +456,7 @@ def check_calc_status():
             return ["finish"]
         elif wait_list == []:
             return ["nowait"]
-        elif ncore > len(running_list):
+        elif njob > len(running_list):
             return ["available", wait_list[0].rstrip("/wait")]
         else:
             pass
@@ -505,7 +505,7 @@ def create_first_generation(POPULATION, genoms):
         generations.append(Indivisual(i))
     if thread == True:
         futures = []
-        with ProcessPoolExecutor(max_workers=ncore) as tpe:
+        with ProcessPoolExecutor(max_workers=njob) as tpe:
             for i in generations:
                 future = tpe.submit(Indivisual.calc_score, i)
                 futures.append(future)
@@ -859,7 +859,7 @@ def ga(generation):
             generation.append(Indivisual(i))
         if thread == True:
             futures = []
-            with ProcessPoolExecutor(max_workers=ncore) as tpe:
+            with ProcessPoolExecutor(max_workers=njob) as tpe:
                 for i in generation:
                     future = tpe.submit(Indivisual.calc_score, i)
                     futures.append(future)
