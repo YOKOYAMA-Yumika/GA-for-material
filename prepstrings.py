@@ -23,8 +23,6 @@ for i in inpga:
     if "GENOMS" in i:
         i = f'GENOMS = "{strings_join}" #original gen(use as reference) str'
     inpga_n.append(i)
-with open("inp_ga.py", "w") as w:
-    w.writelines(inpga_n)
 
 with open("inp.params", "w") as w:
     for i in strings:
