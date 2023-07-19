@@ -84,7 +84,7 @@
     | ELEMENT_FIX | True | 各要素数を固定したい場合はTrueにしてください。 |
     | temp_gene | "temp_gene" | |
     | eval_file | "energy" | エネルギー値を読み取るファイル名 |
-    | ncore | 1 | 並列して行う緩和計算の数 |
+    | njob | 1 | 並列して行う緩和計算の数 |
   
   
 6. inp.paramsを作成  
