@@ -12,9 +12,7 @@ savefiles = inp_POSCAR.savefiles
 output = inp_POSCAR.output
 cpwd = os.getcwd()
 cri_time = 30*60
-#TODO:
 
-#FIXME:
 
 if runtype == "m3g":
     calccode = "m3g.py -instruct=POSCAR -algo=FIRE 2>errorlog.m3g >log.m3g &"
@@ -24,6 +22,7 @@ elif runtype == "m.py":
     energy_file = "energy"
 elif runtype == "vasp":
     energy_file = output
+    vasp_code = "~/bin/vasp5404_gam_flowcl"  #Command to run vasp　#Please make changes according to your environment.
 else:
     pass
 
@@ -95,7 +94,7 @@ def calc_score():
         os.system(f"{calccode}")    
     else:
         os.system("rm CHG* WAV* IBZ* finish 2>err")
-        os.system("~/bin/vasp5404_gam_flowcl")
+        os.system(vasp_code)
         os.system("tail OSZICAR -n1 > oszitail")
         with open("oszitail", "r") as f:
             E0 = f.readline().split()[4]
