@@ -13,4 +13,4 @@ ELEMENT_FIX = True #if you want to fix the num of elements =True
 
 temp_gene = "temp_gene" #name of the temp gene file
 eval_file = "energy"
-ncore = 6
+njob = 6
